@@ -1,0 +1,20 @@
+
+
+
+/opt/mapr/spark/spark-2.1.0/bin/spark-submit --master local --verbose \
+--queue dev \
+--archives 'maprfs:///user/hakula/or-tools_CentOS-7.3.1611-64bit_v6.4.4495/libtest_akula.zip#LIBRARIES' \
+--conf 'spark.driver.extraLibraryPath=./LIBRARIES/' \
+--conf 'spark.executor.extraLibraryPath=./LIBRARIES/' \
+--conf 'spark.driver.extraJavaOptions=-Djava.library.path=/mapr/ri0.comscore.com/user/hakula/or-tools_CentOS-7.3.1611-64bit_v6.4.4495/lib' \
+--conf 'spark.executor.extraJavaOptions=-Djava.library.path=/mapr/ri0.comscore.com/user/hakula/or-tools_CentOS-7.3.1611-64bit_v6.4.4495/lib' \
+--class Main /home/sshinde/test/orToolDemo-assembly-0.1.jar
+
+/opt/mapr/spark/spark-2.1.0/bin/spark-submit --master yarn --verbose \
+--queue dev \
+--archives 'maprfs:///user/hakula/or-tools_CentOS-7.3.1611-64bit_v6.4.4495/libtest_akula.zip#LIBRARIES' \
+--conf 'spark.driver.extraLibraryPath=./LIBRARIES/' \
+--conf 'spark.executor.extraLibraryPath=./LIBRARIES/' \
+--conf 'spark.driver.extraJavaOptions=-Djava.library.path=/mapr/ri0.comscore.com/user/hakula/or-tools_CentOS-7.3.1611-64bit_v6.4.4495/lib' \
+--conf 'spark.executor.extraJavaOptions=-Djava.library.path=/mapr/ri0.comscore.com/user/hakula/or-tools_CentOS-7.3.1611-64bit_v6.4.4495/lib' \
+--class Main /home/sshinde/test/orToolDemo-assembly-0.1.jar
