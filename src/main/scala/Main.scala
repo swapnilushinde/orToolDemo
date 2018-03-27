@@ -6,7 +6,7 @@ import org.apache.log4j.spi.RootLogger
 import org.apache.spark.sql.SparkSession
 
 object Main {
-  // System.loadLibrary("jniortools")
+  System.loadLibrary("jniortools")
 
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder().getOrCreate()
@@ -14,9 +14,8 @@ object Main {
 
     val cnt = spark.createDataset(List(1, 2, 3, 4, 5, 6, 7)).map(i => {
       Thread.sleep(120000 / 1000)
-      System.loadLibrary("jniortools")
-      // runMyProgram(i, "GLOP_LINEAR_PROGRAMMING", false)
-      runTestMinCostFlow2(i)
+      runMyProgram(i, "GLOP_LINEAR_PROGRAMMING", false)
+      // runTestMinCostFlow2(i)
       i
     }).count()
 
@@ -40,7 +39,7 @@ object Main {
 
   }
 
-  def runTestMinCostFlow(mm : Int): Unit = {
+  def runTestMinCostFlow1(mm : Int): Unit = {
     import com.google.ortools.graph.{MinCostFlow, MinCostFlowBase}
 
     val numNodes = 7
