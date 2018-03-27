@@ -13,7 +13,7 @@ object Main {
     import spark.implicits._
 
     val cnt = spark.createDataset(List(1, 2, 3, 4, 5, 6, 7)).map(i => {
-      Thread.sleep(120000 / 1000)
+      Thread.sleep(120000)
       runMyProgram(i, "GLOP_LINEAR_PROGRAMMING", false)
       // runTestMinCostFlow2(i)
       i
